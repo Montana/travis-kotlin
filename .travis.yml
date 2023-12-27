@@ -12,6 +12,7 @@ script:
   - chmod +x pubsub/gradlew
   - nproc 
   - kotlinc -help
+  - kotlinc -X
   - |
     for DIR in ./*/; do
       if [ -f $DIR/gradlew ]; then
