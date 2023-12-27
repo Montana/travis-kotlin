@@ -10,7 +10,6 @@ script:
   - ./ktlint "**/*.kt"
   - chmod +x pubsub/gradlew
   - |
-    set -e
     for DIR in ./*/; do
       if [ -f $DIR/gradlew ]; then
         pushd $DIR
@@ -18,4 +17,3 @@ script:
         popd
       fi
     done
-install: skip
