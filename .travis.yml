@@ -1,0 +1,33 @@
+language: objective-c
+osx_image: xcode9.4
+
+before_cache:
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+- directories:
+  - $HOME/android-sdk-dl
+  - $HOME/android-sdk
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.android/build-cache
+  - $HOME/.konan/cache
+
+install:
+- gem install cocoapods --version 1.4.0
+- mkdir -p $HOME/android-sdk-dl
+- if test ! -e $HOME/android-sdk-dl/sdk-tools.zip ; then curl https://dl.google.com/android/repository/sdk-tools-darwin-4333796.zip > $HOME/android-sdk-dl/sdk-tools.zip ; fi
+- unzip -qq -n $HOME/android-sdk-dl/sdk-tools.zip -d $ANDROID_HOME
+- yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses > /dev/null
+- yes | $ANDROID_HOME/tools/bin/sdkmanager 'tools' > /dev/null
+- yes | $ANDROID_HOME/tools/bin/sdkmanager 'platform-tools' > /dev/null
+- yes | $ANDROID_HOME/tools/bin/sdkmanager 'build-tools;27.0.3' > /dev/null
+- yes | $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-27' > /dev/null
+- yes | $ANDROID_HOME/tools/bin/sdkmanager 'extras;google;m2repository' > /dev/null
+
+env:
+- ANDROID_HOME=$HOME/android-sdk JAVA_OPTS='-XX:+IgnoreUnrecognizedVMOptions --add-modules java.se.ee'
+
+script:
+- ./gradlew clean build
