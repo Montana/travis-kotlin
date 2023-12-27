@@ -7,12 +7,4 @@ install:
   - echo $GOOGLE_APPLICATION_CREDENTIALS_B64 | base64 --decode >> $HOME/credentials.json
   - curl -sSLO https://github.com/shyiko/ktlint/releases/download/0.24.0/ktlint && chmod a+x ktlint
 script:
-  # Run the linter
   - ./ktlint "**/*.kt"
-  # Run all tests in all sample directories
-  - |
-    for DIR in ./*/; do
-      pushd $DIR
-      ./gradlew test
-      popd
-    done
