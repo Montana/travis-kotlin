@@ -9,6 +9,7 @@ install:
 script:
   - ./ktlint "**/*.kt"
   - chmod +x pubsub/gradlew
+  - nproc 
   - |
     for DIR in ./*/; do
       if [ -f $DIR/gradlew ]; then
