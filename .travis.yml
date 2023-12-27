@@ -11,6 +11,7 @@ script:
   - ./ktlint "**/*.kt"
   - chmod +x pubsub/gradlew
   - nproc 
+  - kotlinc -help
   - |
     for DIR in ./*/; do
       if [ -f $DIR/gradlew ]; then
