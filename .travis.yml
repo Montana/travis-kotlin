@@ -8,6 +8,7 @@ install:
   - curl -sSLO https://github.com/shyiko/ktlint/releases/download/0.24.0/ktlint && chmod a+x ktlint
 script:
   - ./ktlint "**/*.kt"
+  - chmod +x pubsub/gradlew
   - |
     set -e
     for DIR in ./*/; do
