@@ -7,6 +7,11 @@ install:
   - echo $GOOGLE_APPLICATION_CREDENTIALS_B64 | base64 --decode >> $HOME/credentials.json
   - curl -sSLO https://github.com/pinterest/ktlint/releases/download/1.1.0/ktlint && chmod a+x ktlint
   - sudo snap install --classic kotlin
+cache:
+- directories:
+  - $HOME/.gradle/caches/
+  - $HOME/.gradle/wrapper/
+  - $HOME/.konan/cache
 script:
   - ./ktlint "**/*.kt"
   - chmod +x pubsub/gradlew
