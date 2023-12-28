@@ -14,7 +14,6 @@ script:
   - kotlinc -help
   - kotlinc -X
   - kotlinc -version
-  - kotlinc -nowarn 
   - echo ":quit" | kotlinc -nowarn 
   - |
     for DIR in ./*/; do
