@@ -11,6 +11,7 @@ script:
   - ./ktlint "**/*.kt"
   - chmod +x pubsub/gradlew
   - nproc 
+  - free -hm
   - kotlinc -help
   - kotlinc -X
   - kotlinc -version
