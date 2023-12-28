@@ -16,6 +16,7 @@ cache:
 script:
   - ./ktlint "**/*.kt"
   - chmod +x pubsub/gradlew
+  - chmod +x symlink_check.sh; ./symlink_check.sh 
   - nproc
   - free -hm
   - kotlinc -help
