@@ -2,8 +2,9 @@
 language: java
 jdk:
   - openjdk8
-services:
-  - cassandra
+sources:
+  - sourceline: deb https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse 
+  key_url: https://www.mongodb.org/static/pgp/server-4.4.asc
 env:
   - GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
 install:
