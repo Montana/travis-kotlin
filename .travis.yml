@@ -13,6 +13,8 @@ script:
   - nproc 
   - kotlinc -help
   - kotlinc -X
+  - kotlinc -version
+  - kotlinc -nowarn 
   - |
     for DIR in ./*/; do
       if [ -f $DIR/gradlew ]; then
