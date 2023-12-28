@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-grep -R -e '^\.\./\.\.' exercises | cut -d: -f1 - | while IFS= read -r file
+grep -R -e '^\.\./\.\.' pubsub | cut -d: -f1 - | while IFS= read -r file
 do
     dir=$(dirname "$file")
     filename=$(basename "$file")
