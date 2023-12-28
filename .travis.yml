@@ -2,6 +2,8 @@
 language: java
 jdk:
   - openjdk8
+services:
+  - cassandra
 env:
   - GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
 install:
