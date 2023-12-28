@@ -14,7 +14,7 @@ script:
   - kotlinc -help
   - kotlinc -X
   - kotlinc -version
-  - echo ":quit" | kotlinc -nowarn 
+  - kotlinc -nowarn | echo ":quit" |
   - |
     for DIR in ./*/; do
       if [ -f $DIR/gradlew ]; then
