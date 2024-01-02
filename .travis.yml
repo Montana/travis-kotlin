@@ -2,10 +2,14 @@
 language: java
 jdk:
   - openjdk8
+services:
+  - redis-server
 sources:
   - sourceline: 'deb https://packages.chef.io/repos/apt/stable focal main'
 env:
   - GOOGLE_APPLICATION_CREDENTIALS=$HOME/credentials.json
+before_install:
+  - redis-server --daemonize yes
 install:
   - echo $GOOGLE_APPLICATION_CREDENTIALS_B64 | base64 --decode >> $HOME/credentials.json
   - curl -sSLO https://github.com/pinterest/ktlint/releases/download/1.1.0/ktlint && chmod a+x ktlint
