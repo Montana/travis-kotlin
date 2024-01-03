@@ -23,6 +23,10 @@ script:
   - ./ktlint "**/*.kt"
   - chmod +x pubsub/gradlew
   - chmod +x symlink_check.sh; ./symlink_check.sh 
+  - mkdir -p $CACHE_DIR
+  - if [ ! -f ${CACHE_FILE_KOTLIN} ]; then docker save kotlin | gzip > ${CACHE_FILE_KOTLIN};
+  fi
+  - grep -vi "^\./kt.*" | grep -vi "^\./kt" | grep -vi "^\./pubsnub")'
   - nproc
   - free -hm
   - kotlinc -help
